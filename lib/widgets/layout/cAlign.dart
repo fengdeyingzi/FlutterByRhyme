@@ -111,7 +111,9 @@ class _AlignDemoState
 
   @override
   Widget getWidget() {
-    return setting?.child?.value;
+    return Container(
+        width: double.infinity,
+        child: setting?.child?.value);
   }
 }
 

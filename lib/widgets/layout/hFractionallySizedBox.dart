@@ -107,10 +107,14 @@ class _FractionallySizedBoxDemoState
 
   @override
   Widget getWidget() {
-    return FractionallySizedBox(
-      widthFactor: setting.widthFactor?.value,
-      heightFactor: setting.heightFactor?.value,
-      alignment: setting.alignment?.value,
+    return Container(
+      width: double.infinity,
+      child: FractionallySizedBox(
+        widthFactor: setting.widthFactor?.value,
+        heightFactor: setting.heightFactor?.value,
+        alignment: setting.alignment?.value,
+        child: Container(color:Colors.green,width: 30,height: 30),
+      ),
     );
   }
 }

@@ -21,14 +21,14 @@ class _FittedBoxDemoState extends ExampleState<FittedBoxDemo> {
       child:  Value(
         value: SizedBox(
           width: 35.0,
-          height: 35.0,
+          height: 20.0,
           child: DecoratedBox(
             decoration: BoxDecoration(color: Colors.blue),
           ),
         ),
         label: '''SizedBox(
           width: 35.0,
-          height: 35.0,
+          height: 20.0,
           child: DecoratedBox(
             decoration: BoxDecoration(color: Theme.of(context).primaryColor),
           ),

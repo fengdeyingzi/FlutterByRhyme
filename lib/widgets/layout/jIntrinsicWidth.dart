@@ -30,17 +30,21 @@ class _IntrinsicWidthDemoState extends ExampleState<IntrinsicWidthDemo> {
   }
 
   Widget _formatWidget(){
-    return IntrinsicWidth(
-      stepHeight: setting?.stepHeight?.value??doubleXlargeValues[0].value,
-      stepWidth: setting?.stepWidth?.value??doubleXlargeValues[0].value,
-      child: SizedBox(
-        width: 35.0,
-        height: 35.0,
-        child: DecoratedBox(
-          decoration: BoxDecoration(color: Colors.blue),
+    return Center(
+      child: IntrinsicWidth(
+          stepHeight: setting?.stepHeight?.value??doubleXlargeValues[0].value,
+          stepWidth: setting?.stepWidth?.value??doubleXlargeValues[0].value,
+          child:  new Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              new Container(color: Colors.blue, height: 100.0),
+              new Container(color: Colors.red, width: 50.0,height: 50.0,),
+              new Container(color: Colors.yellow, height: 150.0),
+            ],
+          ),
         ),
-      ),
     );
+
   }
 
   String _formatLabel(){

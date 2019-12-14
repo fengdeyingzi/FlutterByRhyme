@@ -98,26 +98,30 @@ abstract class ExampleState<T extends StatefulWidget> extends State<T> {
       exampleCode: getExampleCode(),
       title: getTitle(),
       detail: getDetail(),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Expanded(
-            child:
-                // start
-                getWidget(),
-          ),
-          // end
-          Divider(),
-          Expanded(
-              child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: getSetting(),
+      body: Container(
+        width: double.infinity,
+//        color: Colors.green,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Expanded(
+              child:
+                  // start
+                  getWidget(),
             ),
-          )),
-        ],
+            // end
+            Divider(),
+            Expanded(
+                child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: getSetting(),
+              ),
+            )),
+          ],
+        ),
       ),
     );
   }

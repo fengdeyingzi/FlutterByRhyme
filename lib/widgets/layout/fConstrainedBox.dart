@@ -25,16 +25,13 @@ class _ConstrainedBoxDemoState
   }
 
   Widget _formatWidget(){
-    return ConstrainedBox(
-      constraints: setting?.constraints?.value??constraintValues[0].value,
-      child: SizedBox(
-        width: 35.0,
-        height: 35.0,
-        child: DecoratedBox(
-          decoration: BoxDecoration(color: Colors.blue),
-        ),
-      ),
-    );
+    return SizedBox(
+          width: 35.0,
+          height: 35.0,
+          child: DecoratedBox(
+            decoration: BoxDecoration(color: Colors.blue),
+          ),
+        );
   }
 
   String _formatLabel(){
@@ -88,9 +85,11 @@ class _ConstrainedBoxDemoState
 
   @override
   Widget getWidget() {
-    return ConstrainedBox(
-      constraints: setting.constraints?.value,
-      child: setting.child?.value,
+    return UnconstrainedBox(
+      child: ConstrainedBox(
+        constraints: setting.constraints?.value,
+        child: setting.child?.value,
+      ),
     );
   }
 }
