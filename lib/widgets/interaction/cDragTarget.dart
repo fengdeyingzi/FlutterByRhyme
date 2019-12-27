@@ -190,7 +190,7 @@ class _DragTargetDemoState extends ExampleState<DragTargetDemo> {
                 status = '接收:$value';
               });
             },
-            onLeave: (double value) {
+            onLeave: (Object value) {
               setState(() {
                 status = '离开:$value';
               });

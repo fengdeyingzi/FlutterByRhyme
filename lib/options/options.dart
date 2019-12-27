@@ -370,6 +370,8 @@ class _PlatformItem extends StatelessWidget {
         return 'Android';
       case TargetPlatform.fuchsia:
         return 'Fuchsia';
+      default:
+        return 'Fuchsia';
     }
     assert(false);
     return null;
