@@ -359,6 +359,15 @@ class _PageList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Widget child;
+    double width = MediaQuery.of(context).size.width;
+    print("宽度:${width}");
+    int crossCount = 2;
+    if(width>520){
+      crossCount = 3;
+    }
+    if(width>640){
+      crossCount = 4;
+    }
     var optionContext = OptionContext.of(context);
     if (optionContext.options.listStyle.listStyle == 1) {
       List<Widget> pageList =
@@ -368,9 +377,9 @@ class _PageList extends StatelessWidget {
         );
       }).toList();
       child = GridView.count(
-        crossAxisCount: 2,
-        crossAxisSpacing: 6.0,
-        mainAxisSpacing: 6.0,
+        crossAxisCount: crossCount,
+        crossAxisSpacing: 3.0,
+        mainAxisSpacing: 3.0,
         key: PageStorageKey<String>(pageCategory.title),
         padding: const EdgeInsets.only(top: 8.0),
         children: pageList,
@@ -614,6 +623,7 @@ class _PageGridItem extends StatelessWidget {
       );
     }
     return Card(
+      elevation: 0.5,
       child: RawMaterialButton(
           padding: EdgeInsets.zero,
           splashColor: data.primaryColor.withOpacity(0.12),

@@ -80,6 +80,35 @@ abstract class MarkdownState<T extends StatefulWidget> extends State<T> {
   String getMarkdownSource();
 }
 
+class XLayout extends StatelessWidget{
+  final List<Widget> children;
+  final MainAxisAlignment mainAxisAlignment;
+  final CrossAxisAlignment crossAxisAlignment;
+  XLayout({
+    this.children,
+    this.mainAxisAlignment,
+    this.crossAxisAlignment
+});
+  @override
+  Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    if(width<520){
+    return Column(
+      children: this.children,
+      mainAxisAlignment: this.mainAxisAlignment,
+      crossAxisAlignment: this.crossAxisAlignment,
+    );
+
+    }
+    return Row(
+      children: this.children,
+      mainAxisAlignment: this.mainAxisAlignment,
+      crossAxisAlignment: this.crossAxisAlignment,
+    );
+  }
+
+}
+
 abstract class ExampleState<T extends StatefulWidget> extends State<T> {
   GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
@@ -89,9 +118,21 @@ abstract class ExampleState<T extends StatefulWidget> extends State<T> {
       new GlobalKey<ExampleScaffoldState>();
 
   GlobalKey<ExampleScaffoldState> get exampleKey => _exampleKey;
+  /** 获取屏幕宽度 */
+  static double getScreenWidth(BuildContext context) {
+    return MediaQuery.of(context).size.width;
+  }
+
+  /** 获取屏幕高度 */
+  static double getScreenHeight(BuildContext context) {
+    return MediaQuery.of(context).size.height;
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
+    double width = getScreenWidth(context);
     return ExampleScaffold(
       key: _exampleKey,
       scaffoldKey: _scaffoldKey,
@@ -101,7 +142,7 @@ abstract class ExampleState<T extends StatefulWidget> extends State<T> {
       body: Container(
         width: double.infinity,
 //        color: Colors.green,
-        child: Column(
+        child: XLayout(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[

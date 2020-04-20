@@ -72,7 +72,7 @@ class _ApplicationState extends State<Application> {
       textScale: kAllMyTextValue[0],
       timeDilation: timeDilation,
       platform: defaultTargetPlatform,
-      listStyle: kAllListStyleValue[0],
+      listStyle: kAllListStyleValue[1], //xldebug
     );
     MyOptions.initOption().then((value) {
       if (mounted) {

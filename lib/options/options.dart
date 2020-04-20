@@ -52,7 +52,7 @@ class MyOptions {
     });
 
     int listStyle = shareP.getInt(_kListStyle);
-    ListStyleValue listStyleValueScale = kAllListStyleValue[0];
+    ListStyleValue listStyleValueScale = kAllListStyleValue[1];
     kAllListStyleValue.forEach((value) {
       if (value.listStyle == listStyle) {
         listStyleValueScale = value;
