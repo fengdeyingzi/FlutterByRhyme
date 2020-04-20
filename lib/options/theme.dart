@@ -32,9 +32,11 @@ MyTheme kLightTheme = MyTheme._('Light', _buildLightTheme());
 TextTheme _buildTextTheme(TextTheme base) {
   return base.copyWith(
     title: base.title.copyWith(
-      fontFamily: 'qlYouYuan',
+//      fontFamily: 'qlYouYuan',
     ),
-    subhead: base.subhead.copyWith(fontFamily: 'qlYouYuan'),
+    subhead: base.subhead.copyWith(
+//        fontFamily: 'qlYouYuan'
+    ),
   );
 }
 
